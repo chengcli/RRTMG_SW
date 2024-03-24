@@ -18,7 +18,7 @@ cmake_minimum_required(VERSION 3.20)
 
 project(
   RRTMG_SW
-  LANGUAGES C Fortran
+  LANGUAGES CXX Fortran
   )
 
 if (NOT CMAKE_BUILD_TYPE)
@@ -39,9 +39,16 @@ include(${CMAKE_SOURCE_DIR}/cmake/compilers.cmake)
 
 ## 2. set up project specific configuration ##
 message(STATUS "2. Set up project specific configuration ...")
+set(NETCDF_F90 "YES")
 find_package(NetCDF REQUIRED COMPONENTS F90)
 
 message(STATUS "Set up rrtmg_sw source codes")
 add_subdirectory(modules)
 add_subdirectory(src)
+
+set(RRTMG_SW_INCLUDE_DIR
+  "${CMAKE_CURRENT_SOURCE_DIR}/interface"
+  CACHE INTERNAL "rrtmg_sw include directory")
+
+add_subdirectory(tests)
 

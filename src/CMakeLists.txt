@@ -48,3 +48,11 @@ set_target_properties(${namel}_${buildl}
     PROPERTIES
     COMPILE_FLAGS ${CMAKE_Fortran_FLAGS_${buildu}}
     )
+
+set(RRTMG_SW_LIBRARY_${buildu}
+    "rrtmg_sw_mod_${buildl}"
+    "rrtmg_sw_lib_${buildl}"
+    "rrtmg_sw_${buildl}"
+    ${NETCDF_LIBRARIES}
+    CACHE INTERNAL "RRTMG_SW library"
+    )
