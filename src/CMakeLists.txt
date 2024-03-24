@@ -37,7 +37,7 @@ target_include_directories(${namel}_lib_${buildl}
 target_include_directories(${namel}_${buildl}
     PRIVATE
     ${${nameu}_MOD_DIR}
-    ${NetCDF_INCLUDE_DIRS}
+    ${NETCDF_INCLUDES}
     )
 
 add_dependencies(${namel}_${buildl} 
