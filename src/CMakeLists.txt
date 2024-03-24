@@ -17,19 +17,19 @@ set(_${namel}_lib
     rrtmg_sw_reftra.f90
     )
 
-add_library(${namel}_${buildl}_lib
+add_library(${namel}_lib_${buildl}
     OBJECT
     ${_${namel}_lib}
     )
 
 add_library(${namel}_${buildl}
     OBJECT
-    rrtmg_sw_k_g.f90
     rrtmg_sw_init.f90
+    rrtmg_sw_read_nc.f90
     rrtmg_sw_rad.nomcica.f90
     )
 
-target_include_directories(${namel}_${buildl}_lib
+target_include_directories(${namel}_lib_${buildl}
     PRIVATE
     ${${nameu}_MOD_DIR}
     )
@@ -37,11 +37,12 @@ target_include_directories(${namel}_${buildl}_lib
 target_include_directories(${namel}_${buildl}
     PRIVATE
     ${${nameu}_MOD_DIR}
+    ${NetCDF_INCLUDE_DIRS}
     )
 
 add_dependencies(${namel}_${buildl} 
-  ${namel}_${buildl}_lib
-  )
+    ${namel}_lib_${buildl}
+    )
 
 set_target_properties(${namel}_${buildl}
     PROPERTIES

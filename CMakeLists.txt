@@ -14,7 +14,7 @@
 #   include_directories( ${RRTMG_SW_INCLUDE_DIR})
 #   target_link_libraries( ${RRTMG_SW_LIBRARY_DEBUG})
 #
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.20)
 
 project(
   RRTMG_SW
@@ -30,6 +30,8 @@ else()
   message(STATUS "")
 endif()
 
+LIST(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules/)
+
 ## 1. set up compiler flags ##
 message(STATUS "1. Set up project compiler flags ...")
 message(STATUS "Include ${CMAKE_SOURCE_DIR}/cmake/compilers.cmake")
@@ -37,8 +39,8 @@ include(${CMAKE_SOURCE_DIR}/cmake/compilers.cmake)
 
 ## 2. set up project specific configuration ##
 message(STATUS "2. Set up project specific configuration ...")
-message(STATUS "Include ${CMAKE_CURRENT_SOURCE_DIR}/cmake/parameters.cmake")
-include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/parameters.cmake)
+find_package(NetCDF REQUIRED COMPONENTS F90)
+message(STATUS "NetCDF include directory: ${NetCDF_INCLUDE_DIRS}")
 
 message(STATUS "Set up rrtmg_sw source codes")
 add_subdirectory(modules)

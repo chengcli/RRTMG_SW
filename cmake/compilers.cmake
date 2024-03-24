@@ -9,14 +9,14 @@
 #
 if (CMAKE_Fortran_COMPILER_ID MATCHES "GNU")
   set(CMAKE_Fortran_FLAGS_RELEASE
-    "-O3"
+    "-Ofast -fdefault-real-8 -fdefault-integer-8"
     )
   set(KNOWN_COMPILER TRUE)
 endif()
 
 if (CMAKE_Fortran_COMPILER_ID MATCHES "Clang" )
   set(CMAKE_Fortran_FLAGS_RELEASE
-    "-O3"
+    "-Ofast -fdefault-real-8 -fdefault-integer-8"
     )
   set(KNOWN_COMPILER TRUE)
 endif()
