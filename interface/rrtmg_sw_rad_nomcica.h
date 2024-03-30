@@ -1,18 +1,19 @@
-//! \file rrtmg_sw.h
+//! \file rrtmg_sw_rad_nomciaca.h
 //! \brief RRTMG_SW C-Interface
 // *****************************************************************************
 
-#ifndef INTERFACE_RRTMG_SW_H_
-#define INTERFACE_RRTMG_SW_H_
+#ifndef INTERFACE_RRTMG_SW_RAD_NOMCIA_H_
+#define INTERFACE_RRTMG_SW_RAD_NOMCIA_H_
 
-#define FEXPAND(mname,fname)   __ ## mname ## _ ## MOD ## _ ## fname
-#define c_rrtmg_sw_ FEXPAND(rrtmg_sw_rad, rrtmg_sw)
+#include "macros.h"
+
+#define c_rrtmg_sw_rad_ FEXPAND(rrtmg_sw_rad, rrtmg_sw)
 
 #ifdef __cplusplus
 extern "C" {
 #endif 
 
-void c_rrtmg_sw_(
+void c_rrtmg_sw_rad_(
     int ncol,         //! number of horizontal columns
     int nlay,         //! number of model layers
     int icld,         //! cloud overlap method
@@ -82,4 +83,4 @@ void c_rrtmg_sw_(
 } //  extern "C"
 #endif 
 
-#endif  // INTERFACE_RRTMG_SW_H_
+#endif  // INTERFACE_RRTMG_SW_RAD_NOMCIA_H_

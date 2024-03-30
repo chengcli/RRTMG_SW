@@ -1,6 +1,6 @@
 //! This file contains the usage and unit tests for the c_rrtmg_sw_() function.
 
-#include <rrtmg_sw_nomcica.h>
+#include <rrtmg_sw/rrtmg_sw.hpp>
 
 int main(int argc, char **argv) {
     // Test the c_rrtmg_sw_() function
@@ -55,22 +55,14 @@ int main(int argc, char **argv) {
     double **asmser;
     double **ecaer;
 
-    double **swuflx;
-    double **swdflx;
-    double **swhr;
-    double **swuflxc;
-    double **swdflxc;
-    double **swhrc;
+    double *swuflx;
+    double *swdflx;
+    double *swhr;
+    double *swuflxc;
+    double *swdflxc;
+    double *swhrc;
 
-    c_rrtmg_sw_(ncol, nlay, icld, iaer, 
-        play[0], plev[0], tlay[0], tlev[0], tsfc[0], 
-        h2ovmr[0], o3vmr[0], co2vmr[0], ch4vmr[0], n2ovmr[0], o2vmr[0],
-        asdir, asdif, aldir, aldif, coszen,
-        adjes, dyofyr, scon, isolvar,
-        inflgsw, iceflgsw, liqflgsw,
-        cldfr[0], taucld[0], ssacld[0], asmcld[0], fsfcld[0],
-        cicewp[0], cliqwp[0], reice[0], reliq[0],
-        tauaer[0], ssaaer[0], asmser[0], ecaer[0],
-        swuflx[0], swdflx[0], swhr[0], swuflxc[0], swdflxc[0], swhrc[0]
-    );
+    RRTMG_SW rrtmg_sw(1, 1000.);
+
+    rrtmg_sw.Run(swuflx, swdflx, swhr, swuflxc, swdflxc, swhrc);
 }

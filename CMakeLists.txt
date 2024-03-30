@@ -45,9 +45,10 @@ find_package(NetCDF REQUIRED COMPONENTS F90)
 message(STATUS "Set up rrtmg_sw source codes")
 add_subdirectory(modules)
 add_subdirectory(src)
+add_subdirectory(interface)
 
 set(RRTMG_SW_INCLUDE_DIR
-  "${CMAKE_CURRENT_SOURCE_DIR}/interface"
+  "${CMAKE_CURRENT_SOURCE_DIR}"
   CACHE INTERNAL "rrtmg_sw include directory")
 
 add_subdirectory(tests)

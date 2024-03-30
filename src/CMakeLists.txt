@@ -53,6 +53,7 @@ set(RRTMG_SW_LIBRARY_${buildu}
     "rrtmg_sw_mod_${buildl}"
     "rrtmg_sw_lib_${buildl}"
     "rrtmg_sw_${buildl}"
+    "rrtmg++_sw_${buildl}"
     ${NETCDF_LIBRARIES_F90}
     CACHE INTERNAL "RRTMG_SW library"
     )
