@@ -9,17 +9,13 @@ macro(setup_test namel)
                         PROPERTIES 
                         COMPILE_FLAGS ${CMAKE_CXX_FLAGS_${buildu}})
 
-  target_include_directories(
-    ${namel}.${buildl}
-    PRIVATE ${RRTMG_SW_INCLUDE_DIR})
+  target_include_directories(${namel}.${buildl}
+                             PRIVATE ${RRTMG_SW_INCLUDE_DIR})
 
-  target_link_libraries(
-    ${namel}.${buildl}
-    ${RRTMG_SW_LIBRARY_${buildu}}
-    )
+  target_link_libraries(${namel}.${buildl}
+                        rrtmg::rrtmg_sw++)
 
   add_test(NAME ${namel}.${buildl} COMMAND ${namel}.${buildl})
 endmacro()
 
-message(STATUS "RRTMG_SW_INCLUDE_DIR: ${RRTMG_SW_INCLUDE_DIR}")
 setup_test(test_rrtmg_sw_nomcica)

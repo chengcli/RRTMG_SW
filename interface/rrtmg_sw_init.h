@@ -5,7 +5,7 @@
 #ifndef INTERFACE_RRTMG_SW_INIT_H_
 #define INTERFACE_RRTMG_SW_INIT_H_
 
-#include "macros.h"
+#include <macros.h>
 
 #define c_rrtmg_sw_ini_ FEXPAND(rrtmg_sw_init, rrtmg_sw_ini)
 
@@ -13,7 +13,7 @@
 extern "C" {
 #endif 
 
-void c_rrtmg_sw_ini_(double cpdair);
+void c_rrtmg_sw_ini_(double const * cpdair);
 
 #ifdef __cplusplus
 } //  extern "C"

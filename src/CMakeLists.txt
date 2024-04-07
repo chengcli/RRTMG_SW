@@ -18,12 +18,12 @@ set(_${namel}_lib
     )
 
 add_library(${namel}_lib_${buildl}
-    OBJECT
+    STATIC
     ${_${namel}_lib}
     )
 
 add_library(${namel}_${buildl}
-    OBJECT
+    STATIC
     rrtmg_sw_init.f90
     rrtmg_sw_read_nc.f90
     rrtmg_sw_rad.nomcica.f90
@@ -49,11 +49,10 @@ set_target_properties(${namel}_${buildl}
     COMPILE_FLAGS ${CMAKE_Fortran_FLAGS_${buildu}}
     )
 
-set(RRTMG_SW_LIBRARY_${buildu}
+target_link_libraries(${namel}_${buildl}
     "rrtmg_sw_mod_${buildl}"
     "rrtmg_sw_lib_${buildl}"
-    "rrtmg_sw_${buildl}"
-    "rrtmg++_sw_${buildl}"
     ${NETCDF_LIBRARIES_F90}
-    CACHE INTERNAL "RRTMG_SW library"
     )
+
+add_library(rrtmg::rrtmg_swf ALIAS ${namel}_${buildl})

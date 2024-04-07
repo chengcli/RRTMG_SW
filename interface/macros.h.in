@@ -5,6 +5,7 @@
 #ifndef INTERFACE_MACROS_H_
 #define INTERFACE_MACROS_H_
 
-#define FEXPAND(mname,fname)   __ ## mname ## _ ## MOD ## _ ## fname
+#define FEXPAND(mname,fname) @RRTMG_SW_FEXPAND@
+
 
 #endif // INTERFACE_MACROS_H_

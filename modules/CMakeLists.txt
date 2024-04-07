@@ -6,11 +6,11 @@ set(namel rrtmg_sw_mod)
 string(TOUPPER ${namel} nameu)
 
 file(GLOB _rrtmg_sw_mods
-  *.f90
-  )
+    *.f90
+    )
 
 add_library(${namel}_${buildl}
-    OBJECT
+    STATIC
     ${_rrtmg_sw_mods}
     )
 
@@ -20,4 +20,4 @@ set_target_properties(${namel}_${buildl}
     )
 
 set(${nameu}_DIR ${CMAKE_CURRENT_BINARY_DIR}
-  CACHE INTERNAL "${nameu} directory")
+    CACHE INTERNAL "${nameu} directory")

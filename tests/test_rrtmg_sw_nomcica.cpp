@@ -64,5 +64,5 @@ int main(int argc, char **argv) {
 
     RRTMG_SW rrtmg_sw(1, 1000.);
 
-    rrtmg_sw.Run(swuflx, swdflx, swhr, swuflxc, swdflxc, swhrc);
+    //rrtmg_sw.Run(swuflx, swdflx, swhr, swuflxc, swdflxc, swhrc);
 }

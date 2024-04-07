@@ -49,7 +49,6 @@ add_subdirectory(interface)
 
 set(RRTMG_SW_INCLUDE_DIR
   "${CMAKE_CURRENT_SOURCE_DIR}"
-  CACHE INTERNAL "rrtmg_sw include directory")
+  CACHE PATH "rrtmg_sw include directory")
 
 add_subdirectory(tests)
-
